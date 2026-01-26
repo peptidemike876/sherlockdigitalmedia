@@ -1,0 +1,53 @@
+---
+const { pathname } = Astro.url;
+---
+
+<header>
+  <nav>
+    <a class="logo" href="/">Sherlock Digital Media</a>
+    <div class="links">
+      <a href="/work" class={pathname.startsWith('/work') ? 'active' : ''}>Work</a>
+      <a href="/about" class={pathname === '/about' ? 'active' : ''}>About</a>
+      <a href="/contact" class={pathname === '/contact' ? 'active' : ''}>Contact</a>
+    </div>
+  </nav>
+</header>
+
+<style>
+header {
+  padding: 1.5rem 2rem;
+}
+
+nav {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-weight: 700;
+}
+
+.links a {
+  margin-left: 2rem;
+  color: var(--muted);
+  position: relative;
+}
+
+.links a.active,
+.links a:hover {
+  color: var(--text);
+}
+
+.links a.active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 2px;
+  background: var(--accent);
+}
+</style>

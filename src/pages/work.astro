@@ -4,24 +4,15 @@ import ProjectCard from "../components/ProjectCard.astro";
 ---
 
 <BaseLayout>
-  <section class="hero">
-  <h1>
-    Motion design & digital media<br />
-    for brands that value clarity.
-  </h1>
-  <p>
-    I help companies communicate complex ideas through clean,
-    intentional motion and visual systems.
-  </p>
-</section>
+  <section class="intro">
+    <h1>Selected Work</h1>
+    <p>
+      A focused selection of motion and digital projects,
+      built to communicate clearly and perform beautifully.
+    </p>
+  </section>
 
-<style>
-.hero {
-  max-width: 900px;
-}
-</style>
-
-  <section class="work">
+  <section class="projects">
     <ProjectCard
       title="Project One"
       description="Motion design · Brand systems"
@@ -44,10 +35,14 @@ import ProjectCard from "../components/ProjectCard.astro";
 </BaseLayout>
 
 <style>
-.work {
+.intro {
+  max-width: 700px;
+  margin-bottom: var(--space-xl);
+}
+
+.projects {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--space-lg);
-  margin-top: var(--space-xl);
+  gap: var(--space-xl);
 }
 </style>

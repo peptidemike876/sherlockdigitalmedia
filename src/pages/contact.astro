@@ -1,0 +1,56 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout>
+  <section class="contact">
+    <h1>Let’s work together</h1>
+    <p>
+      Have a project in mind or just want to talk ideas?
+      Drop me a line.
+    </p>
+
+    <form name="contact" method="POST" data-netlify="true">
+      <input type="hidden" name="form-name" value="contact" />
+
+      <input type="text" name="name" placeholder="Name" required />
+      <input type="email" name="email" placeholder="Email" required />
+      <textarea name="message" placeholder="Tell me about your project"></textarea>
+
+      <button type="submit">Send message</button>
+    </form>
+  </section>
+</BaseLayout>
+
+<style>
+.contact {
+  max-width: 600px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+input,
+textarea {
+  background: var(--bg-soft);
+  border: none;
+  border-radius: var(--radius);
+  padding: 0.75rem 1rem;
+  color: var(--text);
+  font-family: inherit;
+}
+
+button {
+  margin-top: var(--space-sm);
+  background: var(--accent);
+  color: #000;
+  border: none;
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+  cursor: pointer;
+}
+</style>
