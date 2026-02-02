@@ -1,0 +1,68 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout>
+
+  <!-- HERO -->
+  <section class="hero hero-work">
+    <div class="hero-content">
+      <h1>SDM Motion Design Reel 2025</h1>
+      <p class="meta">
+        Projects spanning motion design and live events
+      </p>
+    </div>
+  </section>
+
+  <main>
+
+    <section class="section section-tight">
+      <div class="section-inner case">
+
+        <!-- VIDEO -->
+        <div class="video">
+          <iframe
+            src="https://player.vimeo.com/video/1126341008?badge=0&autopause=0"
+            allow="autoplay; fullscreen; picture-in-picture"
+            title="SDM Motion Design Reel 2025"
+          ></iframe>
+        </div>
+
+        <!-- OPTIONAL DESCRIPTION -->
+        <p>
+          A curated reel showcasing motion design work created for broadcast,
+          live events, and large-scale screen environments.
+        </p>
+
+      </div>
+    </section>
+
+  </main>
+</BaseLayout>
+
+<style>
+.case {
+  max-width: 900px;
+}
+
+.meta {
+  font-size: var(--text-sm);
+  color: var(--muted);
+}
+
+.video {
+  position: relative;
+  padding-top: 56.25%;
+  margin-bottom: var(--space-lg);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.video iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+</style>

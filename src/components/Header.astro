@@ -4,8 +4,12 @@ const { pathname } = Astro.url;
 
 <header>
   <nav>
-    <a class="logo" href="/">Sherlock Digital Media</a>
+    <a class="logo" href="/">
+  <img src="/images/logo.svg" alt="Sherlock Digital Media" />
+</a>
+
     <div class="links">
+      <a href="/" class={pathname === '/' ? 'active' : ''}>Home</a>
       <a href="/work" class={pathname.startsWith('/work') ? 'active' : ''}>Work</a>
       <a href="/about" class={pathname === '/about' ? 'active' : ''}>About</a>
       <a href="/contact" class={pathname === '/contact' ? 'active' : ''}>Contact</a>
@@ -15,9 +19,22 @@ const { pathname } = Astro.url;
 
 <style>
 header {
-  padding: 1.5rem 2rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  padding: 1.25rem 0;
+  background: transparent;
+
+  z-index: 20;
+  color: #ffffff;
 }
 
+
+header a:hover {
+  opacity: 0.85;
+}
 nav {
   max-width: var(--max-width);
   margin: 0 auto;
@@ -28,6 +45,12 @@ nav {
 
 .logo {
   font-weight: 700;
+}
+
+.logo img {
+  height: 150px;
+  width: auto;
+  display: block;
 }
 
 .links a {

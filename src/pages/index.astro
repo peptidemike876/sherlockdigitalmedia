@@ -4,50 +4,56 @@ import ProjectCard from "../components/ProjectCard.astro";
 ---
 
 <BaseLayout>
-  <section class="hero">
-  <h1>
-    Motion design & digital media<br />
-    for brands that value clarity.
-  </h1>
-  <p>
-    I help companies communicate complex ideas through clean,
-    intentional motion and visual systems.
-  </p>
-</section>
-
-<style>
-.hero {
-  max-width: 900px;
-}
-</style>
-
-  <section class="work">
-    <ProjectCard
-      title="Project One"
-      description="Motion design · Brand systems"
-      image="/images/project-1.jpg"
-      link="/work/project-one"
-    />
-    <ProjectCard
-      title="Project Two"
-      description="Explainer video · Animation"
-      image="/images/project-2.jpg"
-      link="/work/project-two"
-    />
-    <ProjectCard
-      title="Project Three"
-      description="Digital media · Visual storytelling"
-      image="/images/project-3.jpg"
-      link="/work/project-three"
-    />
+  <!-- FULL-BLEED HERO -->
+  <section class="hero hero-home">
+    <div class="hero-content">
+      <h1>
+        SCREENS THAT SPEAK.<br />
+        <br />
+        GRAPHICS THAT INSPIRE.
+      </h1>
+      <p>
+        <strong>Sherlock Digital Media</strong> creates motion-driven visual
+        experiences for television, live events, and concert tours. Led by
+        Michael Sherlock, a designer and screens producer with over 15 years
+        of experience, the studio blends creativity and technical precision
+        to bring stories to life on screen.
+      </p>
+    </div>
   </section>
-</BaseLayout>
 
-<style>
-.work {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-lg);
-  margin-top: var(--space-xl);
-}
-</style>
+  <!-- CONSTRAINED CONTENT -->
+  <main>
+    <section>
+      <div class="section-inner work">
+        <ProjectCard
+          title="SDM Promo Reel 2025"
+          description="Projects spanning motion design and live events"
+          image="/images/SDM_PromoReel_2025_Still.png"
+          link="/work/project-one"
+        />
+
+        <ProjectCard
+          title="Tony Awards 2025"
+          description="3D Set Design and performance graphics"
+          image="/images/TonyAwards2025.webp"
+          link="/work/project-two"
+        />
+
+        <ProjectCard
+          title="The Grand Ole Opry 100th Anniversary"
+          description="3D Set Design and Performance Graphics"
+          image="/images/Opry100_1.jpg"
+          link="/work/project-three"
+        />
+
+        <ProjectCard
+          title="The Golden Globe Awards 2025"
+          description="Winner Screens Graphics"
+          image="/images/gg1.jpg"
+          link="/work/project-four"
+        />
+      </div>
+    </section>
+  </main>
+</BaseLayout>

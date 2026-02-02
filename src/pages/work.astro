@@ -4,45 +4,155 @@ import ProjectCard from "../components/ProjectCard.astro";
 ---
 
 <BaseLayout>
-  <section class="intro">
-    <h1>Selected Work</h1>
-    <p>
-      A focused selection of motion and digital projects,
-      built to communicate clearly and perform beautifully.
-    </p>
+
+  <!-- HERO (reuse same background) -->
+  <section class="hero hero-work">
+    <div class="hero-content">
+      <h1>Selected Work</h1>
+      <p>
+        A focused selection of motion design and screen-based work across
+        broadcast, live events, and large-scale productions.
+      </p>
+    </div>
   </section>
 
-  <section class="projects">
-    <ProjectCard
-      title="Project One"
-      description="Motion design · Brand systems"
-      image="/images/project-1.jpg"
-      link="/work/project-one"
-    />
-    <ProjectCard
-      title="Project Two"
-      description="Explainer video · Animation"
-      image="/images/project-2.jpg"
-      link="/work/project-two"
-    />
-    <ProjectCard
-      title="Project Three"
-      description="Digital media · Visual storytelling"
-      image="/images/project-3.jpg"
-      link="/work/project-three"
-    />
-  </section>
+  <main>
+
+    <!-- FEATURED PROJECTS -->
+    <section class="section">
+      <div class="section-inner featured-work">
+        <ProjectCard
+          title="SDM Promo Reel 2025"
+          description="Motion design and live event work"
+          image="/images/SDM_PromoReel_2025_Still.png"
+          link="/work/project-one"
+        />
+
+        <ProjectCard
+          title="Tony Awards 2025"
+          description="3D set design and performance graphics"
+          image="/images/TonyAwards2025.webp"
+          link="/work/project-two"
+        />
+
+        <ProjectCard
+          title="Grand Ole Opry 100"
+          description="Broadcast and performance visuals"
+          image="/images/Opry100_1.jpg"
+          link="/work/project-three"
+        />
+      </div>
+    </section>
+
+    <!-- PHOTO GRID -->
+    <section class="section">
+      <div class="section-inner gallery">
+        {Array.from({ length: 25 }).map((_, i) => (
+          <button class="thumb" data-image={`/images/gallery-${i + 1}.jpg`}>
+            <img src={`/images/gallery-${i + 1}.jpg`} alt={`Gallery image ${i + 1}`} />
+          </button>
+        ))}
+      </div>
+    </section>
+
+  </main>
 </BaseLayout>
 
 <style>
-.intro {
-  max-width: 700px;
-  margin-bottom: var(--space-xl);
+/* Featured cards */
+.featured-work {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
 }
 
-.projects {
+/* Gallery grid */
+.gallery {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-xl);
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--space-sm);
 }
+
+.thumb {
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.thumb img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s cubic-bezier(.2,.8,.2,1);
+}
+
+.thumb:hover img {
+  transform: scale(1.03);
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+  .featured-work {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+#lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(15,17,21,0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 999;
+}
+
+#lightbox.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#lightbox img {
+  max-width: 90vw;
+  max-height: 90vh;
+}
+
 </style>
+
+<div id="lightbox">
+  <img />
+</div>
+
+<script is:inline>
+  const lightbox = document.getElementById('lightbox');
+  if (!lightbox) return;
+
+  const lightboxImg = lightbox.querySelector('img');
+  if (!lightboxImg) return;
+
+  document.querySelectorAll('.thumb').forEach(btn => {
+    btn.addEventListener('click', () => {
+      lightboxImg.src = btn.dataset.image;
+      lightbox.classList.add('open');
+    });
+  });
+
+  lightbox.addEventListener('click', () => {
+    lightbox.classList.remove('open');
+    lightboxImg.src = '';
+  });
+</script>

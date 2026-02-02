@@ -3,21 +3,76 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout>
-  <section class="about">
-    <h1>About</h1>
-    <p>
-      I’m a motion designer and digital media specialist focused on
-      helping brands explain complex ideas with clarity and restraint.
-    </p>
-    <p>
-      My work sits at the intersection of design, storytelling,
-      and motion — built to feel intentional, modern, and human.
-    </p>
+
+  <!-- HERO -->
+  <section class="hero hero-about">
+    <div class="hero-content">
+      <h1>About</h1>
+      <p>
+        Designer, screens producer, and motion specialist working at the
+        intersection of story, technology, and large-scale visuals.
+      </p>
+    </div>
   </section>
+
+  <main>
+
+    <!-- ABOUT SECTION -->
+   <section class="section section-tight">
+      <div class="section-inner about">
+        <div class="about-text">
+          <h2>Michael Sherlock</h2>
+          <p>
+            I’m a motion designer and screens producer with over 15 years of
+            experience creating visuals for broadcast, award shows, live events,
+            and concert tours.
+          </p>
+          <p>
+            My work focuses on clarity, pacing, and scale — turning screens into
+            storytelling tools that support the performance, not distract from it.
+          </p>
+          <p>
+            I collaborate closely with creative directors, technical teams, and
+            production partners to deliver work that’s both expressive and
+            reliable in high-pressure environments.
+          </p>
+        </div>
+
+        <div class="about-photo">
+          <img src="/images/michael.jpg" alt="Michael Sherlock" />
+        </div>
+      </div>
+    </section>
+
+  </main>
 </BaseLayout>
 
 <style>
 .about {
-  max-width: 700px;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: var(--space-xl);
+  align-items: start;
+}
+
+.about-text p {
+  max-width: 65ch;
+}
+
+.about-photo img {
+  width: 130%;
+  border-radius: var(--radius);
+  display: block;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .about {
+    grid-template-columns: 1fr;
+  }
+
+  .about-photo {
+    order: -1;
+  }
 }
 </style>

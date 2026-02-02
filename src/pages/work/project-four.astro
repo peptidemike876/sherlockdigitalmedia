@@ -1,0 +1,75 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout>
+
+  <!-- HERO -->
+  <section class="hero hero-work">
+    <div class="hero-content">
+      <h1>Tony Awards 2025</h1>
+      <p class="meta">
+        Motion Design · Brand Systems
+      </p>
+    </div>
+  </section>
+
+  <main>
+
+    <section class="section section-tight">
+      <div class="section-inner case">
+
+        <img
+          src="/images/TonyAwards2025.webp"
+          alt="Tony Awards 2025 motion design still"
+        />
+
+        <section>
+          <h2>Overview</h2>
+          <p>
+            A motion-led brand system designed to help communicate
+            complex ideas with clarity and restraint.
+          </p>
+        </section>
+
+        <section>
+          <h2>My Role</h2>
+          <p>
+            Concept, design, animation, and delivery across digital platforms.
+          </p>
+        </section>
+
+        <section>
+          <h2>Outcome</h2>
+          <p>
+            A flexible system that elevated the brand’s visual language
+            and improved audience engagement.
+          </p>
+        </section>
+
+      </div>
+    </section>
+
+  </main>
+</BaseLayout>
+
+<style>
+.case {
+  max-width: 900px;
+}
+
+.meta {
+  font-size: var(--text-sm);
+  color: var(--muted);
+}
+
+.case img {
+  width: 100%;
+  border-radius: var(--radius);
+  margin-bottom: var(--space-lg);
+}
+
+.case section {
+  margin-bottom: var(--space-lg);
+}
+</style>
